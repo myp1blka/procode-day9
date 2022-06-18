@@ -11,41 +11,54 @@ const MainBlockWidth = parseInt(elMainBlock.style.width);
 const MainBlockHeight = parseInt(elMainBlock.style.height);
 const RedBlockWidth = parseInt(elRedBlock.style.width);
 const RedBlockHeight = parseInt(elRedBlock.style.height);
-const GrayBlock1Width = parseInt(elGrayBlock1.style.width);
-const GrayBlock1Height = parseInt(elGrayBlock1.style.height);
-const GrayBlock2Width = parseInt(elGrayBlock2.style.width);
-const GrayBlock2Height = parseInt(elGrayBlock2.style.height);
+const GrayBlock1Top = parseInt(elGrayBlock1.style.top);
+const GrayBlock1Left = parseInt(elGrayBlock1.style.left);
+const GrayBlock2Top = parseInt(elGrayBlock2.style.top);
+const GrayBlock2Left = parseInt(elGrayBlock2.style.left);
 
 
 
 const moveFunction = (e) => {
     console.log(e.code);
 
+    let RedBlockTop = parseInt(elRedBlock.style.top);
+    let RedBlockLeft = parseInt(elRedBlock.style.left);
+
     if (e.code === "ArrowUp" || e.target.className === 'bUp') { 
-            if (parseInt(elRedBlock.style.top) >= RedBlockHeight) {
+        if (RedBlockTop >= RedBlockHeight && 
+            RedBlockTop - 100 != GrayBlock1Top && RedBlockLeft != GrayBlock1Left &&
+            RedBlockTop - 100 != GrayBlock2Top && RedBlockLeft != GrayBlock2Left 
+            ) {
             //console.log('move up');
-            elRedBlock.style.top = parseInt(elRedBlock.style.top) - 100 + 'px';
+            elRedBlock.style.top = RedBlockTop - 100 + 'px';
         }
     }
         
     if (e.code === "ArrowLeft" || e.target.className === 'bLeft') {
-        if (parseInt(elRedBlock.style.left) >= RedBlockWidth) {
+        if (RedBlockLeft >= RedBlockWidth &&
+            RedBlockTop != GrayBlock1Top && RedBlockLeft - 100 != GrayBlock1Left &&
+            RedBlockTop != GrayBlock2Top && RedBlockLeft - 100 != GrayBlock2Left ) {
             //console.log('move left');
-            elRedBlock.style.left = parseInt(elRedBlock.style.left) - 100 + 'px';
+            elRedBlock.style.left = RedBlockLeft - 100 + 'px';
         }
     }
         
     if (e.code === "ArrowDown" || e.target.className === 'bDown') {
-        if (parseInt(elRedBlock.style.top) < MainBlockHeight - 100) {
+        if (RedBlockTop < MainBlockHeight - 100 && 
+            RedBlockTop + 100 != GrayBlock1Top && RedBlockLeft != GrayBlock1Left &&
+            RedBlockTop + 100 != GrayBlock2Top && RedBlockLeft != GrayBlock2Left 
+            ) {
             //console.log('move down');
-            elRedBlock.style.top = parseInt(elRedBlock.style.top) + 100 + 'px';
+            elRedBlock.style.top = RedBlockTop + 100 + 'px';
         }
     }
         
     if (e.code === "ArrowRight" || e.target.className === 'bRight') {
-        if (parseInt(elRedBlock.style.left) < MainBlockWidth - 100) {
+        if (RedBlockLeft < MainBlockWidth - 100 &&
+            RedBlockTop != GrayBlock1Top && RedBlockLeft + 100 != GrayBlock1Left &&
+            RedBlockTop != GrayBlock2Top && RedBlockLeft + 100 != GrayBlock2Left ) {
             //console.log('move right');
-            elRedBlock.style.left = parseInt(elRedBlock.style.left) + 100 + 'px';
+            elRedBlock.style.left = RedBlockLeft + 100 + 'px';
         }
     } 
 };
