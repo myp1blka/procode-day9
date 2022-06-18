@@ -26,45 +26,47 @@ const moveFunction = (e) => {
 
     if (e.code === "ArrowUp" || e.target.className === 'bUp') { 
         if (RedBlockTop >= RedBlockHeight) { 
-            if (RedBlockTop - 100 == GrayBlock1Top && RedBlockLeft == GrayBlock1Left)
-                {console.log('Monstro1');}
-            else if (RedBlockTop - 100 == GrayBlock2Top && RedBlockLeft == GrayBlock2Left)
+            if (RedBlockTop - 100 != GrayBlock1Top || RedBlockLeft != GrayBlock1Left)
+                {{console.log('Monstro1');}}
+            else if (RedBlockTop - 100 != GrayBlock2Top || RedBlockLeft != GrayBlock2Left)
                 {console.log('Monstro2');}
             else
-                {elRedBlock.style.top = RedBlockTop - 100 + 'px';}
+            {
+                elRedBlock.style.top = RedBlockTop - 100 + 'px';
+            }
         }
     }
         
     if (e.code === "ArrowLeft" || e.target.className === 'bLeft') {
         if (RedBlockLeft >= RedBlockWidth) { 
-            if (RedBlockTop == GrayBlock1Top && RedBlockLeft - 100 == GrayBlock1Left)
-                {console.log('Monstro1');}
-            else if (RedBlockTop == GrayBlock2Top && RedBlockLeft - 100 == GrayBlock2Left)
-                {console.log('Monstro2');}
-            else
-                {elRedBlock.style.left = RedBlockLeft - 100 + 'px';}
+            if (
+                RedBlockTop != GrayBlock1Top || RedBlockLeft - 100 != GrayBlock1Left ||
+                RedBlockTop != GrayBlock2Top || RedBlockLeft - 100 != GrayBlock2Left
+            ) {
+                elRedBlock.style.left = RedBlockLeft - 100 + 'px';
+            }
         }
     }
         
     if (e.code === "ArrowDown" || e.target.className === 'bDown') {
         if (RedBlockTop < MainBlockHeight - 100) { 
-            if (RedBlockTop + 100 == GrayBlock1Top && RedBlockLeft == GrayBlock1Left)
-                {console.log('Monstro1');}
-            else if (RedBlockTop + 100 == GrayBlock2Top && RedBlockLeft == GrayBlock2Left)
-                {console.log('Monstro2');}
-            else
-                {elRedBlock.style.top = RedBlockTop + 100 + 'px';}
+            if (
+                RedBlockTop + 100 != GrayBlock1Top || RedBlockLeft != GrayBlock1Left ||
+                RedBlockTop + 100 != GrayBlock2Top || RedBlockLeft != GrayBlock2Left
+            ) {
+                elRedBlock.style.top = RedBlockTop + 100 + 'px';
+            }
         }
     }
         
     if (e.code === "ArrowRight" || e.target.className === 'bRight') {
         if (RedBlockLeft < MainBlockWidth - 100) { 
-            if (RedBlockTop == GrayBlock1Top && RedBlockLeft + 100 == GrayBlock1Left)
-                {console.log('Monstro1');}
-            else if (RedBlockTop == GrayBlock2Top && RedBlockLeft + 100 == GrayBlock2Left)
-                {console.log('Monstro2');}
-            else
-                {elRedBlock.style.left = RedBlockLeft + 100 + 'px';}
+            if (
+                RedBlockTop != GrayBlock1Top || RedBlockLeft + 100 != GrayBlock1Left ||
+                RedBlockTop != GrayBlock2Top || RedBlockLeft + 100 != GrayBlock2Left
+            ) {
+                elRedBlock.style.left = RedBlockLeft + 100 + 'px'
+            }
         }
     } 
 };
