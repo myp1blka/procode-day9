@@ -4,11 +4,19 @@ const elButtonDown = document.querySelector('.bDown');
 const elButtonRight = document.querySelector('.bRight');
 const elMainBlock = document.querySelector('.main-block');
 const elRedBlock = document.querySelector('.red-block');
+const elGrayBlock1 = document.querySelector('.grey-block-1');
+const elGrayBlock2 = document.querySelector('.grey-block-2');
 
 const MainBlockWidth = parseInt(elMainBlock.style.width);
 const MainBlockHeight = parseInt(elMainBlock.style.height);
 const RedBlockWidth = parseInt(elRedBlock.style.width);
 const RedBlockHeight = parseInt(elRedBlock.style.height);
+const GrayBlock1Width = parseInt(elGrayBlock1.style.width);
+const GrayBlock1Height = parseInt(elGrayBlock1.style.height);
+const GrayBlock2Width = parseInt(elGrayBlock2.style.width);
+const GrayBlock2Height = parseInt(elGrayBlock2.style.height);
+
+
 
 const moveFunction = (e) => {
     console.log(e.code);
