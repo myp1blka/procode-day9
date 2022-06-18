@@ -10,35 +10,39 @@ const MainBlockHeight = parseInt(elMainBlock.style.height);
 const RedBlockWidth = parseInt(elRedBlock.style.width);
 const RedBlockHeight = parseInt(elRedBlock.style.height);
 
-//document.addEventListener("keydown", function (e));
+const moveFunction = (e) => {
+    console.log(e.code);
 
-document.addEventListener("click", function (e) {
-
-    //console.log(e.target.className);
-
-        if (e.target.className === 'bUp' && parseInt(elRedBlock.style.top) >= RedBlockHeight){
+    if (e.code === "ArrowUp" || e.target.className === 'bUp') { 
+            if (parseInt(elRedBlock.style.top) >= RedBlockHeight) {
             //console.log('move up');
             elRedBlock.style.top = parseInt(elRedBlock.style.top) - 100 + 'px';
+        }
     }
-    
-        if (e.target.className === 'bLeft' && parseInt(elRedBlock.style.left) >= RedBlockWidth){
+        
+    if (e.code === "ArrowLeft" || e.target.className === 'bLeft') {
+        if (parseInt(elRedBlock.style.left) >= RedBlockWidth) {
             //console.log('move left');
             elRedBlock.style.left = parseInt(elRedBlock.style.left) - 100 + 'px';
+        }
     }
-    
-        if (e.target.className === 'bDown' && parseInt(elRedBlock.style.top) < MainBlockHeight - 100){
+        
+    if (e.code === "ArrowDown" || e.target.className === 'bDown') {
+        if (parseInt(elRedBlock.style.top) < MainBlockHeight - 100) {
             //console.log('move down');
             elRedBlock.style.top = parseInt(elRedBlock.style.top) + 100 + 'px';
+        }
     }
-    
-        if (e.target.className === 'bRight' && parseInt(elRedBlock.style.left) < MainBlockWidth - 100){
+        
+    if (e.code === "ArrowRight" || e.target.className === 'bRight') {
+        if (parseInt(elRedBlock.style.left) < MainBlockWidth - 100) {
             //console.log('move right');
             elRedBlock.style.left = parseInt(elRedBlock.style.left) + 100 + 'px';
-    }
-     
-});
-
-
+        }
+    } 
+};
+document.addEventListener("keydown", moveFunction);
+document.addEventListener("click", moveFunction);
 
 
 
@@ -49,9 +53,9 @@ document.addEventListener("click", function (e) {
 
 //document.getElementsByTagName('div');
 
-document.addEventListener('keypress', (ev) => {
+/* document.addEventListener('keypress', (ev) => {
     console.log(ev);
-});
+}); */
 
 // ArrowDown
 // ArrowLeft
