@@ -7,6 +7,8 @@ const elRedBlock = document.querySelector('.red-block');
 const elGrayBlock1 = document.querySelector('.grey-block-1');
 const elGrayBlock2 = document.querySelector('.grey-block-2');
 
+const elPacMan = document.querySelector('.pac');
+
 const MainBlockWidth = parseInt(elMainBlock.style.width);
 const MainBlockHeight = parseInt(elMainBlock.style.height);
 const RedBlockWidth = parseInt(elRedBlock.style.width);
@@ -16,10 +18,8 @@ const GrayBlock1Left = parseInt(elGrayBlock1.style.left);
 const GrayBlock2Top = parseInt(elGrayBlock2.style.top);
 const GrayBlock2Left = parseInt(elGrayBlock2.style.left);
 
-
-
 const moveFunction = (e) => {
-    console.log(e.code);
+    //console.log(e.code);
 
     let RedBlockTop = parseInt(elRedBlock.style.top);
     let RedBlockLeft = parseInt(elRedBlock.style.left);
@@ -31,7 +31,10 @@ const moveFunction = (e) => {
             else if (RedBlockTop - 100 == GrayBlock2Top && RedBlockLeft == GrayBlock2Left)
                 {console.log('Monstro2');}
             else
-                {elRedBlock.style.top = RedBlockTop - 100 + 'px';}
+            {
+                elRedBlock.style.top = RedBlockTop - 100 + 'px';
+                elPacMan.style.transform = "rotate(270deg)";
+            }
         }
     }
         
@@ -42,7 +45,10 @@ const moveFunction = (e) => {
             else if (RedBlockTop == GrayBlock2Top && RedBlockLeft - 100 == GrayBlock2Left)
                 {console.log('Monstro2');}
             else
-                {elRedBlock.style.left = RedBlockLeft - 100 + 'px';}
+            {
+                elRedBlock.style.left = RedBlockLeft - 100 + 'px';
+                elPacMan.style.transform = "scaleX(-1)";
+            }
         }
     }
         
@@ -53,7 +59,10 @@ const moveFunction = (e) => {
             else if (RedBlockTop + 100 == GrayBlock2Top && RedBlockLeft == GrayBlock2Left)
                 {console.log('Monstro2');}
             else
-                {elRedBlock.style.top = RedBlockTop + 100 + 'px';}
+            {
+                elRedBlock.style.top = RedBlockTop + 100 + 'px';
+                elPacMan.style.transform = "rotate(90deg)";
+            }
         }
     }
         
@@ -64,30 +73,16 @@ const moveFunction = (e) => {
             else if (RedBlockTop == GrayBlock2Top && RedBlockLeft + 100 == GrayBlock2Left)
                 {console.log('Monstro2');}
             else
-                {elRedBlock.style.left = RedBlockLeft + 100 + 'px';}
+            {
+                elRedBlock.style.left = RedBlockLeft + 100 + 'px';
+                elPacMan.style.transform = "scaleX(1)";
+            }
         }
     } 
 };
 document.addEventListener("keydown", moveFunction);
 document.addEventListener("click", moveFunction);
 
-
-
-
-
-
-
-
-//document.getElementsByTagName('div');
-
-/* document.addEventListener('keypress', (ev) => {
-    console.log(ev);
-}); */
-
-// ArrowDown
-// ArrowLeft
-// ArrowRight
-// ArrowUp
 
 
 
