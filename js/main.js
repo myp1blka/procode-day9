@@ -19,7 +19,7 @@ const GrayBlock2Top = parseInt(elGrayBlock2.style.top);
 const GrayBlock2Left = parseInt(elGrayBlock2.style.left);
 
 const moveFunction = (e) => {
-    //console.log(e.code);
+    console.log('e.code: ' + e.code + '  -  e.target.className: ' + e.target.className);
 
     let RedBlockTop = parseInt(elRedBlock.style.top);
     let RedBlockLeft = parseInt(elRedBlock.style.left);
